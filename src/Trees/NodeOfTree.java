@@ -24,7 +24,7 @@ public class NodeOfTree {
         b.left = d; b.right = e;
         c.right = f;
 
-        Node g = new Node(10);
+        Node g = new Node(-100);
         Node h = new Node(20);
         c.left = g; e.right = h;
 //        a.left = null;
@@ -33,10 +33,14 @@ public class NodeOfTree {
 //        System.out.println(a.left.right.val );
 
         display(a);
-        a.left = null;
+//        a.left = null;
         System.out.println();
         System.out.println(sum(a));
         System.out.println(product(a));
+        System.out.println(maxNode(a));
+        System.out.println(minNode(a));
+        System.out.println(sizeOfTree(a));
+        System.out.println(maxLevel(a));
 
 
     }
@@ -55,7 +59,35 @@ public class NodeOfTree {
 
     public static int product(Node root){
         if(root == null) return 1;
-        return root.val * sum(root.left) * sum(root.right);
+        if(root.val != 0) {
+            return root.val * product(root.left) * product(root.right);
+        }
+        else {
+            return product(root.left) * product(root.right);
+        }
     }
+
+    public static int maxNode(Node root){
+        if(root == null) return Integer.MIN_VALUE;
+        return Math.max(root.val, Math.max(maxNode(root.left), maxNode(root.right)));
+    }
+    public static int minNode(Node root){
+        if(root == null) return Integer.MAX_VALUE;
+        return Math.min(root.val, Math.min(minNode(root.left), minNode(root.right)));
+    }
+
+    public static int sizeOfTree(Node root){
+        if(root == null) return  0;
+        return 1 + sizeOfTree(root.left) + sizeOfTree(root.right);
+    }
+
+    public static int maxLevel(Node root){
+        if(root == null) return 0;
+        return 1 + Math.max(maxLevel(root.left), maxLevel(root.right));
+    }
+
+
+
+
 
 }
