@@ -33,8 +33,11 @@ public class NodeOfTree {
 //        System.out.println(a.left.right.val );
 
         display(a);
+        a.left = null;
         System.out.println();
-        printSum(a);
+        System.out.println(sum(a));
+        System.out.println(product(a));
+
 
     }
 
@@ -45,15 +48,14 @@ public class NodeOfTree {
         display(root.right);
     }
 
-    public static void printSum(Node root){
-        int sum = root.val
+    public static int sum(Node root){
+        if(root == null) return 0;
+        return root.val + sum(root.left) + sum(root.right);
     }
 
-    public static void sum(Node root, int sum){
-        if(root == null) return;
-        sum += root.val;
-        sum(root.left, sum);
-        sum(root.right, sum);
+    public static int product(Node root){
+        if(root == null) return 1;
+        return root.val * sum(root.left) * sum(root.right);
     }
 
 }
