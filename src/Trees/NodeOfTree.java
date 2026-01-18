@@ -32,15 +32,17 @@ public class NodeOfTree {
 //        System.out.println(a.left.val);
 //        System.out.println(a.left.right.val );
 
-        display(a);
-//        a.left = null;
-        System.out.println();
-        System.out.println(sum(a));
-        System.out.println(product(a));
-        System.out.println(maxNode(a));
-        System.out.println(minNode(a));
-        System.out.println(sizeOfTree(a));
-        System.out.println(maxLevel(a));
+//        display(a);
+////        a.left = null;
+//        System.out.println();
+//        System.out.println(sum(a));
+//        System.out.println(product(a));
+//        System.out.println(maxNode(a));
+//        System.out.println(minNode(a));
+//        System.out.println(sizeOfTree(a));
+//        System.out.println(maxLevel(a));
+
+        displayLevel(a, 1, 0);
 
 
     }
@@ -50,6 +52,13 @@ public class NodeOfTree {
         System.out.print(root.val+" ");
         display(root.left);
         display(root.right);
+    }
+
+    public static void displayLevel(Node root, int l, int currentLevel){
+        if (root == null) return;
+        if(l == currentLevel) System.out.print(root.val+" ");
+        displayLevel(root.left,l, currentLevel+1 );
+        displayLevel(root.right, l, currentLevel+1);
     }
 
     public static int sum(Node root){
