@@ -1,5 +1,7 @@
 package Trees;
 
+import static Trees.WithoutRecursion.preeOrderWithoutRecursion;
+
 public class Traversals {
 
     public static void main(String[] args) {
@@ -15,14 +17,18 @@ public class Traversals {
         b.left = d; b.right = e;
         c.left = f; c.right = g;
 
+        System.out.print("preorder: ");
         preOrder(a);
+        System.out.println();
+        System.out.print("preorder: ");
+        preeOrderWithoutRecursion(a);
 //        System.out.println();
 //        inOrder(a);
 //        System.out.println();
 //        postOrder(a);
-        invertBinaryTree(a);
-        System.out.println();
-        preOrder(a);
+//        invertBinaryTree(a);
+//        System.out.println();
+//        preOrder(a);
     }
 
     public static void preOrder(Node root){

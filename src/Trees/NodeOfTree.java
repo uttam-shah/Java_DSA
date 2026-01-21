@@ -1,5 +1,7 @@
 package Trees;
 
+import static Trees.WithoutRecursion.preeOrderWithoutRecursion;
+
 class Node{
     int val;
     Node left;
@@ -27,22 +29,13 @@ public class NodeOfTree {
         Node g = new Node(-100);
         Node h = new Node(20);
         c.left = g; e.right = h;
-//        a.left = null;
-//        System.out.println(b.val);
-//        System.out.println(a.left.val);
-//        System.out.println(a.left.right.val );
 
-//        display(a);
-////        a.left = null;
-//        System.out.println();
-//        System.out.println(sum(a));
-//        System.out.println(product(a));
-//        System.out.println(maxNode(a));
-//        System.out.println(minNode(a));
-//        System.out.println(sizeOfTree(a));
-//        System.out.println(maxLevel(a));
+        System.out.print("Preorder: ");
+        display(a);
 
-        displayLevel(a, 1, 0);
+        System.out.println();
+        System.out.print("Preorder: ");
+        preeOrderWithoutRecursion(a);
 
 
     }
