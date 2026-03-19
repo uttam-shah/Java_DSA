@@ -54,10 +54,10 @@ public class NodeOfTree {
         displayLevel(root.right, l, currentLevel+1);
     }
 
-    public static int sum(Node root){
-        if(root == null) return 0;
-        return root.val + sum(root.left) + sum(root.right);
-    }
+//    public static int sum(Node root){
+//        if(root == null) return 0;
+//        return root.val + sum(root.left) + sum(root.right);
+//    }
 
     public static int product(Node root){
         if(root == null) return 1;
@@ -88,8 +88,25 @@ public class NodeOfTree {
         return 1 + Math.max(maxLevel(root.left), maxLevel(root.right));
     }
 
+    private static int sum(Node root){
+        if(root == null) return 0;
+        return root.val + sum(root.left) + sum(root.left);
 
+    }
 
+//    public static int level(Node root){
+//        if(root == null) return 0;
+//        return  1+ Math.max(level(root.left), level(root.right));
+//    }
 
+    public static boolean sameTree(Node p, Node q){
+
+        if(p == null && q == null) return  true;
+        if(p == null || q == null) return  false;
+
+        if(p.val == q.val) return sameTree(p.left, q.left) && sameTree(p.left, q.right);
+        else  return  false;
+
+    }
 
 }

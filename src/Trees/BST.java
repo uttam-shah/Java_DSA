@@ -21,20 +21,21 @@ public class BST {
         c.left = f; c.right = g;
         g.left = h;
 
-        List<List<Integer>> ans = new ArrayList<>();
-        printBST(a);
-        System.out.println();
-        printBSTWithNewLines(a);
-        System.out.println();
-        System.out.println(ans);
-        bst(a, ans);
-        System.out.println(ans);
-//        System.out.println();
-//        printBSTRightOrder(a);
-//        System.out.println();
-//        displayLevel(a, 2, 0);
-//        System.out.println();
-//        printBSTWithRecursion(a, 0);
+//                  1 (a)
+//                /       \
+//             2 (b)     3 (c)
+//            /    \     /    \
+//          4 (d) 5 (e) 6 (f) 7 (g)
+//                            /
+//                          8 (h)
+
+//        printLeve(a, 3,0);
+
+        for (int i= 0; i<=3; i++){
+            printLeve(a, i,0);
+            System.out.println();
+        }
+
 
     }
 
@@ -106,6 +107,7 @@ public class BST {
         displayLevel(root, l, 0);
         printBSTWithRecursion(root, l+1);
     }
+
     public static void displayLevel(Node root, int l, int currentLevel){
         if (root == null) return;
         if(l == currentLevel) System.out.print(root.val+" ");
@@ -122,4 +124,29 @@ public class BST {
             this.level = level;
         }
     }
+
+    public static void printBst(Node root){
+
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(root);
+
+        while (!queue.isEmpty()){
+            Node ele = queue.remove();
+            System.out.print(ele.val+" ");
+            if(ele.left != null) queue.add(ele.left);
+            if(ele.right != null) queue.add(ele.right);
+        }
+
+    }
+
+    public static void printLeve(Node root, int l, int cl){
+
+        if(root == null) return;
+        if(cl == l) System.out.print(root.val+" ");
+        cl++;
+        if(root.left != null) printLeve(root.left, l, cl);
+        if(root.right != null) printLeve(root.right, l, cl);
+    }
+
+
 }
