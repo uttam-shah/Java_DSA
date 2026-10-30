@@ -3,17 +3,20 @@ package DSA_150;
 public class ArrayString {
     public static void main(String[] args) {
 
-        int[] arr1 = new int[]{1,2,3,0,0,0};
-//        int[] arr1 = new int[]{1,2,3};
-        int n = 3;
+//        int[] arr1 = new int[]{1,2,3,0,0,0};
+////        int[] arr1 = new int[]{1,2,3};
+//        int n = 3;
+//
+//        int[] arr2 = new int[]{2,5,6};
+//        int m = 3;
+//
+//        printArr(arr1);
+//        System.out.println();
+//        merge(arr1, n, arr2, m);
+//        printArr(arr1);
 
-        int[] arr2 = new int[]{2,5,6};
-        int m = 3;
-
-        printArr(arr1);
-        System.out.println();
-        merge(arr1, n, arr2, m);
-        printArr(arr1);
+//        System.out.println(isHappy(19));
+        System.out.println(getHappy(100));
 
     }
 
@@ -81,4 +84,50 @@ public class ArrayString {
         }
 
     }
+
+
+
+    public static boolean isHappy(int n) {
+
+        while(n !=1){
+
+            if(n < 10 && n > 1){
+                return false;
+            }
+            else{
+                n = getHappy(n);
+            }
+        }
+
+        return true;
+
+    }
+
+    public static int getHappy(int n){
+
+        int num = 0;
+
+        while(n > 0){
+
+            int r;
+
+            if(n >= 10){
+                r =  n%10;
+                n = n/10;
+            }else{
+                r = n;
+                n = 0;
+            }
+
+            num += r*r;
+
+            System.out.println("value of num:"+ num);
+
+
+        }
+
+        return num;
+    }
+
+
 }
